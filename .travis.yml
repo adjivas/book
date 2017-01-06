@@ -1,6 +1,23 @@
 ---
 language: python
 sudo: true
+addons:
+  apt:
+    packages:
+    - texlive-base
+    - texlive-latex-recommended
+    - texlive-extra-utils
+    - texlive-fonts-recommended
+    - texlive-font-utils
+    - texlive-lang-french
+    - texlive-latex-extra
+    - texlive-math-extra
+    - texlive-xetex
+    - texlive-pictures
+    - pgf
+    - latex-xcolor
+    - lmodern
+    - latexmk
 os:
   - linux
 python:
