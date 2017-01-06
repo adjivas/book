@@ -9,6 +9,7 @@ install:
   - sudo pip install pygments-style-solarized
   - sudo pip install dot2tex
   - sudo pip install graphviz
+  - sudo tlmgr update --self
 
 script:
   - make a4
