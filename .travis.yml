@@ -1,31 +1,7 @@
-language: c
-
-env:
-  global:
-    # ctanupload uses these
-    - CONTRIBUTION=download
-    - NAME="Simon Sigurdhsson"
-    - DIRECTORY=/macros/latex/contrib/download
-    - DUMMARY="Allow LaTeX to download files using an external process"
-    - LICENSE=free
-    - FREEVERSION=lppl
-
+sudo: required
+dist: trusty
 before_install:
-  - mkdir -p $HOME/texlive && curl -L https://github.com/urdh/texlive-blob/releases/download/20170106/texlive.tar.xz | tar -JxC $HOME/texlive
-
-install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq wget aria2 axel curl
-  - PATH=$HOME/texlive/bin/x86_64-linux:$PATH
-  - tlmgr update --self --all --reinstall-forcibly-removed
-  - tlmgr install paratype
-  - tlmgr install opensans
-  - tlmgr install sourcecodepro
-  - tlmgr install ly1
-  - tlmgr install xindy
-  - tlmgr install mweights
-  - tlmgr install babel-french
-  - tlmgr remove --force download
+- sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended
 
 script:
   - make a4
