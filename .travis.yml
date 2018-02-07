@@ -1,9 +1,16 @@
-language: bash 
+language: bash
 before_install:
-  - sudo apt-get update
-  - sudo apt-get install -y --no-install-recommends texlive-full latexmk
-
+- sudo apt-get update
+- sudo apt-get install -y --no-install-recommends texlive-full latexmk
 install: true
-
 script:
-  - make a4
+- make a4
+deploy:
+  local-dir: dest
+  provider: pages
+  target-branch: gh-pages
+  skip-cleanup: true
+  github-token: "$GITHUB_TOKEN"
+env:
+  global:
+    secure: h4fv9pywhXC7Jc/Z2GytrrqFMTD03/9HSjJDbs13JtEiC4XP5KUW3MuvHFQr+RYuVCpFmNbC4tvGobGbBThtYR7DXaIQKrjKd+SV+7mnoNZ4NJF2xFVQkzecSQL+FLeYYtETn+niC+F+Pi7a8rHDksyMTtYq7kk6BH6GZZhjj8jFXutdEnkxtvYnabSWUMYLcKclQ2kxTTnJUtXJ1hgGjnvrvde1fI6xJEt9r3d9DQy6f4H8UU5Zw/8iqOV3ekVNMlOYqWpKcr0K+eIvHwhYeLW1I5LWJTbGwgLXnW8lWHYEqaLW8xGOZ4V/VElvcjEdFhOxQwRn8rGO2Qzhn1DjhyaSKQalBTXH++NgZ++j2ZjCdzRCV6T9F91qOpcQfg84mvgLJ9ET/maTcm/N+U+ga0iMBG82Qh42QQtmTEHGLSIL9h2YCorhqSZkHKbdNOaFsVTdH9w4FrJoc3c3ZnUcuBSQtAw5OHjr8VMcXECzIfimmVoSvAYzWw/Qj/52UYCj+TjJ13JjE5zcltJEKejcUjlaF/lERTJbrdViou3+FMXhvGkDXHF8CSR+WaW6SXmqL2bMmP6LCKNV1S2obQy2CXt7PcQcN0hex3J7TFfj23/F8raA/a0sjFBP8+UK4iFDNYmR5QCD11dw8vVyriNNPaziJ8XIrngFZfFGw5bzexU=
